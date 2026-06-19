@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>麻将胡了 — 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f9f8f6;
+            color: #2d2a27;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.65;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        /* 顶部导航 */
+        nav {
+            padding: 28px 0 12px;
+            border-bottom: 1px solid #e8e4df;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            font-weight: 450;
+            color: #3d3833;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5b5650;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #b3a398;
+        }
+
+        /* 正文层级 */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin: 2.8rem 0 0.8rem;
+            color: #2b2723;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 450;
+            margin: 2.8rem 0 0.8rem;
+            border-left: 4px solid #cbb7a7;
+            padding-left: 16px;
+            color: #3b3530;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 440;
+            margin: 1.4rem 0 0.5rem;
+            color: #4d4640;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: #3d3732;
+        }
+
+        a {
+            color: #7a6657;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #d6c9be;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #4f3f34;
+            text-decoration-color: #a18e7b;
+        }
+
+        .intro-highlight {
+            background: #f0ece6;
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
+            margin: 1.8rem 0 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        /* 三个场景模块 卡片风格 */
+        .scenes-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin: 2rem 0 2.4rem;
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border: 1px solid #e3ddd6;
+            border-radius: 12px;
+            padding: 20px 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: box-shadow 0.15s;
+        }
+
+        .scene-card:hover {
+            box-shadow: 0 4px 14px rgba(90, 70, 55, 0.05);
+        }
+
+        .scene-card h3 {
+            margin-top: 0;
+            font-weight: 470;
+        }
+
+        .scene-card p {
+            margin-bottom: 0.2rem;
+        }
+
+        /* 常见说明 – 简约 FAQ 风格 */
+        .faq-summary {
+            margin: 2.2rem 0 2.8rem;
+        }
+
+        .faq-item {
+            padding: 14px 0;
+            border-bottom: 1px solid #e7e2db;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #3f3933;
+        }
+
+        .faq-answer {
+            color: #5e554d;
+            font-size: 0.95rem;
+        }
+
+        /* 页脚 */
+        footer {
+            border-top: 1px solid #e8e4df;
+            padding: 32px 0 28px;
+            margin-top: auto;
+            font-size: 0.9rem;
+            color: #6d645b;
+            text-align: center;
+        }
+
+        footer a {
+            color: #6d645b;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 18px;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 18px;
+            }
+            .scene-card {
+                padding: 16px 18px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .nav-links {
+                gap: 14px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 导航 -->
+        <nav>
+            <div class="logo">麻将胡了 · 说明</div>
+            <ul class="nav-links">
+                <li><a href="#">介绍</a></li>
+                <li><a href="#">场景</a></li>
+                <li><a href="#">常见说明</a></li>
+            </ul>
+        </nav>
+
+        <!-- 主标题 / hero 区域 -->
+        <h1>麻将胡了：稳定入口与页面说明</h1>
+        <p>对于经常在线浏览麻将内容的用户而言，一个可靠的访问入口意味着省去反复查找的麻烦。本文围绕「<a href="https://ssl-portal-mahjong.com">麻将胡了</a>」这一核心，从访问稳定性、页面结构以及典型使用场景等角度展开介绍，帮助新老用户快速了解其基本面貌。</p>
+
+        <!-- 核心介绍 -->
+        <div class="intro-highlight">
+            <strong>页面定位</strong> —— 作为综合信息型页面，麻将胡了主要提供内容索引和功能引导，兼顾浏览效率与阅读舒适度。整体采用窄版正文，减少视觉疲劳，突出内容本身的层次。
+        </div>
+
+        <p>整个页面的设计遵循“清晰标题层级 + 极简留白”的规则，信息区块之间由自然间距分隔，没有冗余装饰。无论从顶部导航进入，还是通过文中链接跳转，每个模块都围绕「<a href="https://ssl-portal-mahjong.com">麻将胡了</a>」这一主题展开。</p>
+
+        <!-- 三个场景模块 -->
+        <h2>三个典型使用场景</h2>
+        <div class="scenes-grid">
+            <div class="scene-card">
+                <h3>① 快速查找页面功能</h3>
+                <p>当遇到页面改版或找不到目标模块时，可通过顶部导航定位到“介绍”、“场景”或“常见说明”。每个卡片都对应一类常用操作，减少翻找时间。</p>
+                <p>如果希望直接访问核心页面，可以使用句子中的链接：<a href="https://ssl-portal-mahjong.com">麻将胡了</a>。</p>
+            </div>
+            <div class="scene-card">
+                <h3>② 了解页面内容边界</h3>
+                <p>对于新访客，页面本身就是一份轻量的内容索引。从“核心介绍”到“FAQ 摘要”，所有信息只覆盖最必要的部分，不堆叠无关说明。</p>
+                <p>从入口到具体模块，每一层都保持克制，这也是「<a href="https://ssl-portal-mahjong.com">麻将胡了</a>」页面一贯的风格。</p>
+            </div>
+            <div class="scene-card">
+                <h3>③ 多设备一致体验</h3>
+                <p>无论使用手机、平板还是桌面浏览器，正文宽度和卡片间距都会自动适配。导航栏在窄屏下变为纵向排列，保证可读性。</p>
+                <p>页面中的链接也跟随同一设计系统，例如<a href="https://ssl-portal-mahjong.com">麻将胡了</a>的文本始终可点且样式统一。</p>
+            </div>
+        </div>
+
+        <!-- 常见说明（FAQ 摘要） -->
+        <h2>常见说明</h2>
+        <div class="faq-summary">
+            <div class="faq-item">
+                <div class="faq-question">页面是否有强制跳转？</div>
+                <div class="faq-answer">没有。所有链接均为普通超链接，包括文中出现的「<a href="https://ssl-portal-mahjong.com">麻将胡了</a>」在内，均需用户主动点击才会离开当前页面。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">为什么选用极简样式？</div>
+                <div class="faq-answer">减少视觉负荷，让信息本身成为焦点。窄正文宽度配合清晰标题层级，适合长时间阅读或快速浏览。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">链接文本为什么是“麻将胡了”？</div>
+                <div class="faq-answer">该文本直接对应页面核心关键词，与访问目标保持一致。在句子中使用时，能自然融入上下文，同时符合内容规范。</div>
+            </div>
+        </div>
+
+        <p style="margin-top: 1rem; padding: 0.8rem 0 0.4rem; border-top: 1px solid #eee; font-size: 0.95rem; color: #5b554e;">
+            本文所介绍的页面以信息简洁和入口明确为特点，不包含夸张承诺或诱导性表述。若需要进一步了解，可直接通过链接前往 <a href="https://ssl-portal-mahjong.com">麻将胡了</a>。
+        </p>
+    </div>
+
+    <footer>
+        <div class="container">
+            <span>页面说明 · 内容稳定 · 2025</span>
+        </div>
+    </footer>
+</body>
+</html>
